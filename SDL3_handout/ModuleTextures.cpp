@@ -65,5 +65,15 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 	// TODO 4: Before leaving, remember to free the surface and
 	// add the texture to our own array so we can properly free them
 
+	SDL_FreeSurface(surface);
+	bool stored = false;
+	for (int i = 0; i < MAX_TEXTURES && stored == false; ++i)
+	{
+		if (textures[i] == nullptr)textures[i] = texture;
+		stored = true;
+	}
+
+	if (!stored) LOG("Could not load the texture to our texture array. Array must be full.");
+
 	return nullptr;
 }
