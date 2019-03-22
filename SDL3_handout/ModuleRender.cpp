@@ -32,7 +32,7 @@ bool ModuleRender::Init()
 		ret = false;
 	}
 
-	// TODO 9: load a texture "test.png" to test is everything works well
+	// TODO 9: load a texture "test.png" to test if everything works well
 
 	return ret;
 }

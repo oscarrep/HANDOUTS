@@ -52,8 +52,15 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 	// TODO 2: Load and image from a path (must be a png)
 	// and check for errors
 
+	SDL_Surface* surface = nullptr;
+	surface = IMG_Load(path);
+	if (!surface)LOG("Error loading image to surface, SDL Error: %s", SDL_GetError());
+
 	// TODO 3: Once your have the SDL_surface*, you need to create
 	// a texture from it to return it (check for errors again)
+
+	SDL_Texture* texture = nullptr;
+	texture = SDL_CreateTextureFromSurface(App->render->renderer, surface);
 
 	// TODO 4: Before leaving, remember to free the surface and
 	// add the texture to our own array so we can properly free them
